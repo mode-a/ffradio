@@ -1,0 +1,19 @@
+{
+  "name": "ffradio",
+  "version": "0.0.1",
+  "description": "Friday Friends Radio",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4",
+	"serve-favicon": "2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "index.js"
+  },
+  "keywords": [
+    "radio"
+  ],
+  "author": "Vladyslav Korobka",
+  "license": "ISC"
+}

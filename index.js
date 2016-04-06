@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use(favicon(__dirname + "/favicon.ico"));
+app.use(favicon(__dirname + "/public/favicon.ico"));
 
 app.post("/user", function (req, res) {
     var ans = {

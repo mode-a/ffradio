@@ -1,23 +1,30 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Friday Friends</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+	<title>Friday Friends</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href="libs/reset.min.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+
 </head>
-<body ng-app="app">
-	<p>hello, world!</p>
-    <section ng-controller="sendFormCtrl">
-        <input type="text" ng-model="username" placeholder="your name..." />
-        <input type="text" ng-model="userlastname" placeholder="your lastname..." />
-        <button ng-click="sendData()">send</button>
-        <p>{{monitor}}</p>
-    </section>
+<body ng-app="app" ng-cloak>
+	<header>
+		<p>Hello, world!</p>
+	</header>
+
+	<section ng-controller="sendFormCtrl as sendForm">
+		<ng-form name="userform" novalidate>
+			<input ng-model="sendForm.username" type="text" placeholder="Your Name" required />
+			<input ng-model="sendForm.userlastname" type="email" placeholder="Your e-mail..." required />
+			<button ng-click="sendForm.sendData(userform.$valid)">send</button>
+		</ng-form>
+		<div ng-show="!userform.$valid">Proszę wpisać imię</div>
+		<p>{{sendForm.monitor}}</p>
+	</section>
+
+	<script src="libs/angular.min.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
